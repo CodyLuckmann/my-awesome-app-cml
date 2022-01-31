@@ -37,13 +37,15 @@ jobs:
           echo
           git --version
           echo
-          mvn -version
+          mvn --version
           echo 
-          gradle -version
+          gradle --version
           echo
           ant -version
           echo
-          $SELENIUM_JARS
+          echo $ANDROID_SDK_ROOT
+          echo
+          echo $SELENIUM_JAR_PATH
           echo
           echo $GITHUB_WORKSPACE
           echo
