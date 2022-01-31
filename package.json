@@ -1,6 +1,6 @@
 {
     "name": "my-awsome-app-cml",
-    "version": "0.1.1",
+    "version": "0.1.2",
     "description": "Hello World in Node with Express",
     "main": "app.js",
     "scripts": {
