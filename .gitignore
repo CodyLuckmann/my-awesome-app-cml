@@ -1,0 +1,7 @@
+# dependancies
+/node_modules
+/.pnp
+.pnp.js
+
+# manually added zip files
+*.zip
