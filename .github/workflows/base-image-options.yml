@@ -1,12 +1,11 @@
 # This is a basic workflow to help you get started with Actions
 
-name: CI
+name: Base Image Options
 
 # Controls when the workflow will run
 on:
   # Triggers the workflow on push or pull request events but only for the main branch
-  push:
-    branches: [ main ]
+
   pull_request:
     branches: [ main ]
 
@@ -32,25 +31,28 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Multi-line
         run: |
-          echo ls
+          ls
           echo
-          echo java -version
+          java -version
           echo
-          echo git --version
+          git --version
           echo
-          echo mvn -version
+          mvn -version
           echo 
-          echo gradle -version
+          gradle -version
           echo
-          echo ant -version
+          ant -version
           echo
-          echo $SELENIUM_JARS
+          $SELENIUM_JARS
           echo
-          echo runner
+          echo $GITHUB_WORKSPACE
           echo
-          echo whoami
+          whoami
           echo
-          echo env -0 | sort -z | tr'\0' '\n'
+          df
+          echo
+          env -0
+          echo
 
 
 
