@@ -8,4 +8,19 @@ services:
     build:
       context: ./
       dockerfile: ./Dockerfile
+    ports:
+      - '3001:3000'
+    volumes:
+      - ./:/app
+      - ./node_modules:/app/node_modules
+
+    test:
+      container_name: my-awesome-app-cml-test
+      depends_on:
+        - "web"
+      image: my-awesome-app-cml_web
+      volumes:
+        - .:/app
+        - ./node_modules:/app/node_modules
+      command: ["npm", "test"]
 
