@@ -1,0 +1,13 @@
+version: '3.9'
+
+services:
+  react-app-deploy:
+    container_name: my-awesome-app-prod-cml
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - '/app/node_modules'
+      - './:/app'
+    ports:
+      - "80:8080"
