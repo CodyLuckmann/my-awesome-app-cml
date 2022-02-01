@@ -4,11 +4,15 @@
     "description": "Hello World in Node with Express",
     "main": "app.js",
     "scripts": {
-        "start": "node app.js"
+        "start": "node app.js",
+        "test": "react-scripts test"
     },
     "author": "Cody Luckmann",
     "license": "ISC",
     "dependencies": {
         "express": "^4.17.1"
+    },
+    "devDependencies": {
+        "react-scripts": "^4.0.3"
     }
 }
