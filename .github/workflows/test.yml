@@ -14,5 +14,5 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      -name: Run Docker compose on Dev files
+      - name: Run Docker compose on Dev files
         run: docker-compose -f "docker-compose-dev.yml" -d --build test
