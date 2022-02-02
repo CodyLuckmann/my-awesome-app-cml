@@ -1,18 +1,13 @@
-FROM node:lts-alpine as build 
+FROM node:10
 
 WORKDIR /app
 
-COPY package*.json ./
-RUN npm ci
+COPY package.json ./
+RUN npm install
 
 COPY . ./
-RUN npm run build
 
+ENV APP_PORT 8080
+EXPOSE 8080
 
-FROM nginx:latest
-COPY --from=build /app/build /usr/share/nginx/html
-
-
-EXPOSE 80
-
-CMD ["nginx", "-g", "daemon off;"]
+CMD ["node", "app.js"]
