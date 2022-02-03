@@ -9,6 +9,7 @@ on:
     
 
 env:
+  AWS_REGION: us-east-1
   DATE_STAMP: $(date +%s)
 
 jobs:
@@ -18,6 +19,7 @@ jobs:
 
     steps:
           - uses: actions/checkout@v2
+
           - name: Env variables
             run: echo "date-stamp=${{ env.DATE_STAMP}}" >> $GITHUB_ENV
           # - name: Build the Docker image
@@ -31,10 +33,16 @@ jobs:
           #     password: ${{ secrets.DOCKER_TOKEN}}
           # - name: Push the Docker image to Docker Hub
           #   run: docker push --all-tags cmluckmann/my-awesome-app-cml   
-          - name: Checkout source code
-            uses: actions/checkout@v2
+          - name: Configure AWS Credentials
+          - uses: aws-actions/configure-aws-credentials@v1
+            with:
+              aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY }}
+              aws-secret-access-key: ${{ secrets.AWS_SECRET_KEY }}
+              aws-region: us-east-1
+
           - name: Generate deployment package
             run: zip -r deploy.zip . -x '*.git*'
+
           - name: Deploy to AWS EBS
             uses: einaregilsson/beanstalk-deploy@v20
             with:
