@@ -2,7 +2,7 @@ const fs = require('fs');
 
 const path = require('path');
  
-const html = fs.readFileSync(path.resolve(__dirname, '../App.js'), 'utf8');
+const html = fs.readFileSync(path.resolve(__dirname, '../app.js'), 'utf8');
  
 document.documentElement.innerHTML = html.toString();
 
